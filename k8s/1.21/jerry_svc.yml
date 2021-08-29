@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: jerry-app
+  labels:
+    app: jerry
+spec:
+  containers:
+    - name: jerry-app
+      image: vbm126/nodejs-echo:1.0
+      args:
+        - "Hi jerry"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: jerry-service
+spec:
+  selector:
+    app: jerry
+  ports:
+    - port: 8080

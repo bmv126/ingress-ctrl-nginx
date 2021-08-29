@@ -1,0 +1,24 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: spike-app
+  labels:
+    app: spike
+spec:
+  containers:
+    - name: spike-app
+      image: vbm126/nodejs-echo:1.0
+      args:
+        - "Hi spike"
+
+---
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: spike-service
+spec:
+  selector:
+    app: spike
+  ports:
+    - port: 8080

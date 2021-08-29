@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: tom-app
+  labels:
+    app: tom
+spec:
+  containers:
+    - name: tom-app
+      image: vbm126/nodejs-echo:1.0
+      args:
+        - "Hi tom"
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: tom-service
+spec:
+  selector:
+    app: tom
+  ports:
+    - port: 8080

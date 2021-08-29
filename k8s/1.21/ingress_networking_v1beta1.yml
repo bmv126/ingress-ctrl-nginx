@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: tom-jerry-ingress-ntw-beta
+  annotations:
+    ingress.kubernetes.io/rewrite-target: /
+spec:
+  rules:
+  - http:
+      paths:
+        - path: /jerry
+          backend:
+            serviceName: jerry-service
+            servicePort: 8080
+        - path: /tom
+          backend:
+            serviceName: tom-service
+            servicePort: 8080
